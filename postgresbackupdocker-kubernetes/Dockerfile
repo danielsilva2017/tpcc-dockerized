@@ -3,7 +3,7 @@ copy ./pg_hba.conf  /var/lib/
 
 COPY ./setupback.sh /
 
-CMD ["/bin/bash","setupback.sh"," 10.107.131.127  "]
+CMD ["/bin/bash","setupback.sh"," postgres "]
 
 
 
