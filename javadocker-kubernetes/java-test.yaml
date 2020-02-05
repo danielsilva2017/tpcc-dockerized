@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java  
+spec:
+  selector:
+    matchLabels:
+      app: java
+  template:
+      metadata:
+        labels:
+          app: java
+      spec:
+        containers:
+          - name: java
+            image: silvadanielum/java:latestV10
+            command: 
+            - /bin/sh
+            - -c
+            - |
+              cd tpc-c-0.1-SNAPSHOT/etc/
+              sed -i 's/.*tpcc.number.warehouses=4.*/tpcc.number.warehouses=1/'  workload-config.properties
+              sed -i 's/.*measurement.time=2.*/measurement.time=1/'  workload-config.properties 
+              cd ..
+              ./load.sh
+              ./run.sh
+              while true; do sleep 30; done
+       
+
+
+            
+
