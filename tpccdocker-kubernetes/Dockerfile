@@ -26,7 +26,7 @@ COPY --from=build /build/target/tpc-c-0.1-SNAPSHOT-tpc-c/tpc-c-0.1-SNAPSHOT/etc/
 COPY --from=build /build/target/tpc-c-0.1-SNAPSHOT-tpc-c/tpc-c-0.1-SNAPSHOT/etc/sql/postgresql/payment01       /docker-entrypoint-initdb.d/08-payment01.sql
 COPY --from=build /build/target/tpc-c-0.1-SNAPSHOT-tpc-c/tpc-c-0.1-SNAPSHOT/etc/sql/postgresql/stocklevel01    /docker-entrypoint-initdb.d/09-stocklevel01.sql
 
-CMD [ "-c", "wal_level=logical" ]
+CMD [ "-c", "wal_level=logical"]
 
 
 
